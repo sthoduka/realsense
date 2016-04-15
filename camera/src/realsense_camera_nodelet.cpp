@@ -369,7 +369,7 @@ namespace realsense_camera
     if (enable_depth_ == true)
     {
       enableDepthStream();
-      enableInfraredStream();
+      //enableInfraredStream();
       if (camera_.find (R200) != std::string::npos)
         enableInfrared2Stream();
     }
@@ -677,7 +677,7 @@ namespace realsense_camera
       }
 
       enableDepthStream();
-      enableInfraredStream();
+      //enableInfraredStream();
       if (camera_.find (R200) != std::string::npos)
         enableInfrared2Stream();
 
@@ -753,6 +753,45 @@ namespace realsense_camera
       {
         rs_get_stream_intrinsics (rs_device_, RS_STREAM_COLOR, &color_intrinsic, &rs_error_); checkError ();
         rs_get_device_extrinsics (rs_device_, RS_STREAM_DEPTH, RS_STREAM_COLOR, &z_extrinsic, &rs_error_); checkError ();
+      }
+
+      {
+          std::cout << "z_intrinsic.width = " << z_intrinsic.width << ";" << std::endl;
+          std::cout << "z_intrinsic.height = " << z_intrinsic.height << ";" << std::endl;
+          std::cout << "z_intrinsic.ppx = " << z_intrinsic.ppx << ";" << std::endl;
+          std::cout << "z_intrinsic.ppy = " << z_intrinsic.ppy << ";" << std::endl;
+          std::cout << "z_intrinsic.fx = " << z_intrinsic.fx << ";" << std::endl;
+          std::cout << "z_intrinsic.fy = " << z_intrinsic.fy << ";" << std::endl;
+          std::cout << "z_intrinsic.model = " << z_intrinsic.model << ";" << std::endl;
+          std::cout << "z_intrinsic.coeffs[0] = " << z_intrinsic.coeffs[0] << ";" << std::endl;
+          std::cout << "z_intrinsic.coeffs[1] = " << z_intrinsic.coeffs[1] << ";" << std::endl;
+          std::cout << "z_intrinsic.coeffs[2] = " << z_intrinsic.coeffs[2] << ";" << std::endl;
+          std::cout << "z_intrinsic.coeffs[3] = " << z_intrinsic.coeffs[3] << ";" << std::endl;
+          std::cout << "z_intrinsic.coeffs[4] = " << z_intrinsic.coeffs[4] << ";" << std::endl;
+
+	  std::cout << "z_extrinsic.rotation[0] = " << z_extrinsic.rotation[0] << ";" << std::endl;
+	  std::cout << "z_extrinsic.rotation[1] = " << z_extrinsic.rotation[1] << ";" << std::endl;
+	  std::cout << "z_extrinsic.rotation[2] = " << z_extrinsic.rotation[2] << ";" << std::endl;
+	  std::cout << "z_extrinsic.rotation[3] = " << z_extrinsic.rotation[3] << ";" << std::endl;
+	  std::cout << "z_extrinsic.rotation[4] = " << z_extrinsic.rotation[4] << ";" << std::endl;
+	  std::cout << "z_extrinsic.rotation[5] = " << z_extrinsic.rotation[5] << ";" << std::endl;
+	  std::cout << "z_extrinsic.rotation[6] = " << z_extrinsic.rotation[6] << ";" << std::endl;
+	  std::cout << "z_extrinsic.rotation[7] = " << z_extrinsic.rotation[7] << ";" << std::endl;
+	  std::cout << "z_extrinsic.rotation[8] = " << z_extrinsic.rotation[8] << ";" << std::endl;
+	  std::cout << "z_extrinsic.rotation[9] = " << z_extrinsic.rotation[9] << ";" << std::endl;
+
+          std::cout << "color_intrinsic.width = " << color_intrinsic.width << ";" << std::endl;
+          std::cout << "color_intrinsic.height = " << color_intrinsic.height << ";" << std::endl;
+          std::cout << "color_intrinsic.ppx = " << color_intrinsic.ppx << ";" << std::endl;
+          std::cout << "color_intrinsic.ppy = " << color_intrinsic.ppy << ";" << std::endl;
+          std::cout << "color_intrinsic.fx = " << color_intrinsic.fx << ";" << std::endl;
+          std::cout << "color_intrinsic.fy = " << color_intrinsic.fy << ";" << std::endl;
+          std::cout << "color_intrinsic.model = " << color_intrinsic.model << ";" << std::endl;
+          std::cout << "color_intrinsic.coeffs[0] = " << color_intrinsic.coeffs[0] << ";" << std::endl;
+          std::cout << "color_intrinsic.coeffs[1] = " << color_intrinsic.coeffs[1] << ";" << std::endl;
+          std::cout << "color_intrinsic.coeffs[2] = " << color_intrinsic.coeffs[2] << ";" << std::endl;
+          std::cout << "color_intrinsic.coeffs[3] = " << color_intrinsic.coeffs[3] << ";" << std::endl;
+          std::cout << "color_intrinsic.coeffs[4] = " << color_intrinsic.coeffs[4] << ";" << std::endl;
       }
 
       // Convert pointcloud from the camera to pointcloud object for ROS.

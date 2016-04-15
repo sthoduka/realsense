@@ -16,6 +16,8 @@
     <arg name="camera"              default="0" />
     <arg name="depth_width"         default="480" />
     <arg name="depth_height"        default="360" />
+    <arg name="color_width"         default="480" />
+    <arg name="color_height"        default="360" />
 
     <!-- "enable_depth_ir" will take the value of "enable_ir" only if "enable_ir" is true.
          Else "enable_depth_ir" will take the value of "enable_depth" -->
@@ -38,6 +40,8 @@
         <param name="camera"            type="int"  value="$(arg camera)" />
         <param name="depth_height"      type="int"  value="$(arg depth_height)" />
         <param name="depth_width"       type="int"  value="$(arg depth_width)" />
+        <param name="color_height"      type="int"  value="$(arg color_height)" />
+        <param name="color_width"       type="int"  value="$(arg color_width)" />
 
         <remap from="camera/depth/image_raw"        to="$(arg depth)/image_raw" />
         <remap from="camera/color/image_raw"        to="$(arg rgb)/image_raw" />
