@@ -778,7 +778,9 @@ namespace realsense_camera
 	  std::cout << "z_extrinsic.rotation[6] = " << z_extrinsic.rotation[6] << ";" << std::endl;
 	  std::cout << "z_extrinsic.rotation[7] = " << z_extrinsic.rotation[7] << ";" << std::endl;
 	  std::cout << "z_extrinsic.rotation[8] = " << z_extrinsic.rotation[8] << ";" << std::endl;
-	  std::cout << "z_extrinsic.rotation[9] = " << z_extrinsic.rotation[9] << ";" << std::endl;
+	  std::cout << "z_extrinsic.translation[0] = " << z_extrinsic.translation[0] << ";" << std::endl;
+	  std::cout << "z_extrinsic.translation[1] = " << z_extrinsic.translation[1] << ";" << std::endl;
+	  std::cout << "z_extrinsic.translation[2] = " << z_extrinsic.translation[2] << ";" << std::endl;
 
           std::cout << "color_intrinsic.width = " << color_intrinsic.width << ";" << std::endl;
           std::cout << "color_intrinsic.height = " << color_intrinsic.height << ";" << std::endl;
@@ -824,6 +826,7 @@ namespace realsense_camera
       const float depth_scale = rs_get_device_depth_scale (rs_device_, &rs_error_);
       checkError ();// Default value is 0.001
 
+      std::cout << "depth_scale = " << depth_scale << ";" << std::endl;
       // Fill the PointCloud2 fields.
       for (int y = 0; y < z_intrinsic.height; y++)
       {
